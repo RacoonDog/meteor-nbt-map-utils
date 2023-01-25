@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
+  "id": "nbtmaputils",
   "version": "${version}",
-  "name": "Addon Template",
+  "name": "Meteor NBT Map Utils",
   "description": "An addon template for the Meteor addons.",
   "authors": [
-    "seasnail"
+    "Crosby"
   ],
   "contact": {
-    "repo": "https://github.com/RacoonDog/meteor-addon-template",
-    "sources": "https://github.com/RacoonDog/meteor-addon-template",
-    "issues": "https://github.com/RacoonDog/meteor-addon-template/issues"
+    "repo": "https://github.com/RacoonDog/meteor-nbt-map-utils",
+    "sources": "https://github.com/RacoonDog/meteor-nbt-map-utils",
+    "issues": "https://github.com/RacoonDog/meteor-nbt-map-utils/issues"
   },
   "license": "MPL-2.0",
-  "icon": "assets/template/icon.png",
+  "icon": "assets/nbtmaputils/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.AddonTemplate"
+      "io.github.racoondog.nbtmaputils.NbtMapUtils"
     ]
   },
   "mixins": [
-    "addon-template.mixins.json"
+    "nbtmaputils.mixins.json"
   ],
   "custom": {
     "meteor-client:color": "225,25,25",
