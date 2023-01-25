@@ -37,7 +37,7 @@ public class NbtMapModify extends Command {
     }
 
     private void modify(int number) {
-        info("Modifying nbt by " + String.valueOf(number));
+        info("Modifying nbt by " + number);
         ItemStack stack = mc.player.getInventory().getMainHandStack();
 
         if (stack == null) {
@@ -50,15 +50,10 @@ public class NbtMapModify extends Command {
         }
 
         NbtCompound tag = stack.getOrCreateNbt();
-        if (!tag.contains("map")) {
-            error("Map does not contain 'map' nbt element!");
-            return;
-        }
-
-        int map = tag.getInt("map");
-        map += number;
+        int map = tag.contains("map") ? tag.getInt("map") : 0;
+        map = Math.max(map + number, 0);
         tag.putInt("map", map);
 
-        stack.setNbt(tag); //Dont know if required
+        stack.setNbt(tag);
     }
 }
