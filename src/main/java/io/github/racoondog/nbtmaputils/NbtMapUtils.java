@@ -10,11 +10,8 @@ import org.slf4j.Logger;
 
 @Environment(EnvType.CLIENT)
 public class NbtMapUtils extends MeteorAddon {
-    public static final Logger LOG = LogUtils.getLogger();
-
     @Override
     public void onInitialize() {
-        // Commands
         Commands.get().add(new NbtMapModify());
     }
 

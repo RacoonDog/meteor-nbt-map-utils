@@ -9,6 +9,7 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.c2s.play.CreativeInventoryActionC2SPacket;
 
 import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 
@@ -50,10 +51,11 @@ public class NbtMapModify extends Command {
         }
 
         NbtCompound tag = stack.getOrCreateNbt();
-        int map = tag.contains("map") ? tag.getInt("map") : 0;
+        int map = tag.contains("map", 99) ? tag.getInt("map") : 0;
         map = Math.max(map + number, 0);
         tag.putInt("map", map);
 
         stack.setNbt(tag);
+        mc.player.networkHandler.sendPacket(new CreativeInventoryActionC2SPacket(36 + mc.player.getInventory().selectedSlot, stack));
     }
 }
